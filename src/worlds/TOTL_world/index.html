@@ -32,6 +32,8 @@
         <a-asset-item id="doorModel" src="/worlds/TOTL_world/assets/models/single_door.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="garageDoorModel" src="/worlds/TOTL_world/assets/models/garage_door.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
 
+        <a-asset-item id="navMesh_model" src="/worlds/TOTL_world/assets/models/betaNavMesh.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+
 
         <!-- agriculture room models -->
         <a-asset-item id="microscope_model" src="/worlds/TOTL_world/assets/models/microscope.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
@@ -65,18 +67,18 @@
       <!------------------------------------------------------------------------------>
 
       <!-- circles checkpoints -->
-      <a-entity circles-checkpoint position="0 0.35 0"></a-entity>
-      <a-entity circles-checkpoint position="2 0.35 6"></a-entity>
-      <a-entity circles-checkpoint position="-3 0.35 5"></a-entity>
-      <a-entity circles-checkpoint position="-2 0.35 -7"></a-entity>
-      <a-entity circles-checkpoint position="8 0.35 -7"></a-entity>
+      <a-entity circles-checkpoint position="0 0.1 0"></a-entity>
+      <a-entity circles-checkpoint position="2 0.1 6"></a-entity>
+      <a-entity circles-checkpoint position="-3 0.1 5"></a-entity>
+      <a-entity circles-checkpoint position="-2 0.1 -7"></a-entity>
+      <a-entity circles-checkpoint position="8 0.1 -7"></a-entity>
       
 
       <!-- load room models -->
       <a-entity id="digitalLab" position="0 -0.15 0" rotation="0 0 0" scale="1 1 1" gltf-model="#roughLabModel" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
-      <a-image position="-5.85 3.5 -5.95" rotation="0 90 0" src="#AF_img" width="1.5" height="1.5"></a-image>
-      <a-entity id="door" position="-6 0.05 -5.48" rotation="0 0 0" gltf-model="#doorModel" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;">
-                <a-image position="0.05 1.75 -0.45" rotation="0 90 0" src="#AF_img" width="0.5" height="0.5"></a-image>
+      <!-- <a-image position="-5.85 3.5 -5.95" rotation="0 90 0" src="#AF_img" width="1.5" height="1.5"></a-image> -->
+      <a-entity id="door" position="-6 0.05 -5.95" rotation="0 0 0" gltf-model="#doorModel" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;">
+                <a-image position="0.05 1.75 0" rotation="0 90 0" src="#AF_img" width="0.5" height="0.5"></a-image>
       </a-entity>
       <a-entity id="garageDoor" position="3.8 0 -3.95" rotation="0 0 0" gltf-model="#garageDoorModel" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;">
                 <a-image position="-0.07 2 -0.2" rotation="0 90 0" src="#ST_img" width="1.5" height="1.5"></a-image>
@@ -142,7 +144,8 @@
       </a-entity>
       <a-entity id="trunkTrunk" position="10 0 -6" rotation="0 -75 0" scale="30 30 30" gltf-model="#trunkTrunk_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
 
-    
+      <a-entity id="navMesh" position="-1.176 0 -3.958" gltf-model="#navMesh_model" visible="false" nav-mesh></a-entity>
+
       <a-entity id='skyBox'
                 rotation='0 200 0'
                 geometry='primitive:sphere; radius:50; segments-height:24; segments-width:24;'
