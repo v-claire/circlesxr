@@ -28,7 +28,7 @@
         <!-- ^ from https://pixabay.com/sound-effects/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6038 on Pixabay-->
 
         <!-- room models -->
-        <a-asset-item id="roughLabModel" src="/worlds/TOTL_world/assets/models/room.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="roughLabModel" src="/worlds/TOTL_world/assets/models/room_v2.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="doorModel" src="/worlds/TOTL_world/assets/models/single_door.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="garageDoorModel" src="/worlds/TOTL_world/assets/models/garage_door.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
 
@@ -75,8 +75,8 @@
       <!-- load room models -->
       <a-entity id="digitalLab" position="0 -0.15 0" rotation="0 0 0" scale="1 1 1" gltf-model="#roughLabModel" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
       <a-image position="-5.85 3.5 -5.95" rotation="0 90 0" src="#AF_img" width="1.5" height="1.5"></a-image>
-      <a-entity id="door" position="-6 0.05 -5.48" rotation="0 0 0" gltf-model="#doorModel" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;">
-                <a-image position="0.05 1.75 -0.45" rotation="0 90 0" src="#AF_img" width="0.5" height="0.5"></a-image>
+      <a-entity id="door" position="-6.466 0.05 -5.292" rotation="0 121.4 0" gltf-model="#doorModel" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;">
+                <!--<a-image position="0.031 1.75 -0.18" rotation="0 90 0" src="#AF_img" width="0.5" height="0.5" visable="false"></a-image>-->
       </a-entity>
       <a-entity id="garageDoor" position="3.8 0 -3.95" rotation="0 0 0" gltf-model="#garageDoorModel" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;">
                 <a-image position="-0.07 2 -0.2" rotation="0 90 0" src="#ST_img" width="1.5" height="1.5"></a-image>
@@ -90,6 +90,14 @@
                 circles-sphere-env-map="src:#skyMap" 
                 shadow="case:true; receive:true;">
                 <a-entity id="microscope" position="-0.2 0.4 0" rotation="0 -90 0" scale="30 30 30" gltf-model="#microscope_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
+                <a-entity id="placebox"
+                position="-0.2 0.4 1"
+                geometry="primitive:box; height:0.1; width:0.5; depth:0.5;"
+                material="color:rgb(100, 255, 100);"
+                circles-sphere-env-map="src:#skyMap" 
+                shadow="case:false; receive:false;"
+                onclick="slidesActive()"
+                circles-interactive-object="type:highlight"></a-entity>
                 <a-entity id="slideCase" position="-0.2 0.4 1" rotation="0 140 0" scale="30 30 30" gltf-model="#slideCase_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;" visible="false"></a-entity>
                 <a-entity id="monitor" position="0.2 0.4 -1" rotation="0 200 0" scale="30 30 30" gltf-model="#compMonitor_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
       </a-entity>
@@ -100,14 +108,16 @@
                 material="color:black;"
                 circles-sphere-env-map="src:#skyMap" 
                 shadow="case:true; receive:true;">
-                <a-entity id="eggCandlingDevice" position="0.5 0.4 0" scale="30 30 30" gltf-model="#eggCandlingDevice_model" circles-sphere-env-map="src:#skyMap" onclick="eggtester()" shadow="cast:false; receive:true;" circles-interactive-object="type:highlight"></a-entity>
+                <a-entity id="eggCandlingDevice" position="0.5 0.4 0" scale="30 30 30" gltf-model="#eggCandlingDevice_model" circles-sphere-env-map="src:#skyMap" onclick="eggtester()" shadow="cast:false; receive:true;" circles-interactive-object="type:highlight">
+                  <a-entity id="indicater" position="-0.01 0.003 0.01" scale="0.05 0.04 0.01" geometry="primitive:box; height:0.2; width:0.2; depth:0.2;" material="color:black;"></a-entity>
+                </a-entity>
                 <a-entity id="egg1" position="0 0.48 0.2" rotation="0 90 90" scale="30 30 30" gltf-model="#egg_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;" circles-pickup-networked circles-artefact="inspectScale:30 30 30; inspectRotation:0 0 0; inspectPosition:1 -0.5 1.3; label_on:false; description_on:false;" circles-interactive-object="type:highlight"></a-entity>
                 <a-entity id="egg2" position="-0.3 0.48 0.2" rotation="0 -90 90" scale="30 30 30" gltf-model="#egg_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;" circles-pickup-networked circles-artefact="inspectScale:30 30 30; inspectRotation:0 0 0; inspectPosition:1 -0.5 1.3; label_on:false; description_on:false;" circles-interactive-object="type:highlight"></a-entity>
                 <a-entity id="egg3" position="-0.6 0.48 0.2" rotation="0 -120 90" scale="30 30 30" gltf-model="#egg_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;" circles-pickup-networked circles-artefact="inspectScale:30 30 30; inspectRotation:0 0 0; inspectPosition:1 -0.5 1.3; label_on:false; description_on:false;" circles-interactive-object="type:highlight"></a-entity>
       </a-entity>
       <a-entity id="boxNest" position="-14 0 -6" rotation="0 -110 0" scale="30 30 30" gltf-model="#boxNest_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;">
                 <a-entity id="chickenInCoop" rotation="0 180 0" scale="0.08 0.08 0.08" gltf-model="#chicken_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;" visible="false"></a-entity>
-                <a-entity id="nest" position="0 0.005 0" gltf-model="#nest_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
+                <a-entity id="nest" position="0 0.005 0" gltf-model="#nest_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;" onclick="nestplace()" circles-interactive-object="type:highlight"></a-entity>
       </a-entity>
       <a-entity id="slideCaseClosed" position="-12 0.1 -6.5" rotation="0 -90 0" scale="30 30 30" gltf-model="#slideCaseClosed_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;" circles-interactive-object="type:highlight; enabled:false;"></a-entity>
       <a-entity id="chickenOnSlides" position="-12 0 -6.5" rotation="0 30 0" scale="2 2 2" gltf-model="#chicken_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
