@@ -1,0 +1,28 @@
+[
+    {"tagID": "objectID",
+        "info": {
+            "name": "artifactName",
+            "year": 1234,
+            "desc": "description",
+            "idNum": "12.34.56"
+        }
+    },
+
+    {"tagID": "eggCandler",
+        "info": {
+            "name": "artifactName2",
+            "year": 1234,
+            "desc": "description2",
+            "idNum": "12.34.56"
+        }
+    },
+
+    {"tagID": "chickenCoop",
+        "info": {
+            "name": "artifactName3",
+            "year": 1234,
+            "desc": "description3",
+            "idNum": "12.34.56"
+        }
+    }
+]
