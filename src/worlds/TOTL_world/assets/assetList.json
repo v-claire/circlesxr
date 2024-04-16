@@ -1,28 +1,290 @@
 [
-    {"tagID": "objectID",
-        "info": {
-            "name": "artifactName",
-            "year": 1234,
-            "desc": "description",
-            "idNum": "12.34.56"
-        }
-    },
-
     {"tagID": "eggCandler",
         "info": {
-            "name": "artifactName2",
-            "year": 1234,
-            "desc": "description2",
-            "idNum": "12.34.56"
+            "name": "Egg Candling Light",
+            "year": 1938,
+            "desc": "A model 600 Caswell Egg Grading Lamp manufactured in western Canada. This device was used to examine eggshells for the presence of dirt, cracks, or blood spots, which indicated a fertilized egg. This lamp was designed to be table mounted and should be regarded as a technological benchmark between the use of kerosne lamps and large multi-egg candling units. It would have been appropriate for use in small egg farm operations.",
+            "idNum": "2012.0038.001"
         }
     },
 
-    {"tagID": "chickenCoop",
+    {"tagID": "microscope",
         "info": {
-            "name": "artifactName3",
-            "year": 1234,
-            "desc": "description3",
-            "idNum": "12.34.56"
+            "name": "Charles Baker Microscope",
+            "year": 1885,
+            "desc": "This microscope was manufactured by the Charles Baker Ltd. microscope manufacturing company estimated between 1885-1900. This microscope was used to observe specimens in microscopic detail and was donated to the collection by H.H Watson, an English Physicist who studied health hazards in factories and mines, upon his death in 1938. This microscope is in excellent condition in spite of over 55 years of use. It was donated along with a collection of microscope slides.",
+            "idNum": "1994.0302.001"
+        }
+    },
+
+    {"tagID": "microscopeSlideCase",
+        "info": {
+            "name": "Microscope Slide Case",
+            "year": 1885,
+            "desc": "An imitation snakeskin bound microscope slide case. This slide case was donated alongside a microscope and other related pieces from a collection belonging to H.H Watson.",
+            "idNum": "1994.0302.001"
+        }
+    },
+
+    {"tagID": "slide1",
+        "info": {
+            "name": "Gladiolus Seed Microscope Slide",
+            "year": 1920,
+            "desc": "A microscope slide containing a Gladious seed, prepared by Charles Robert Percival.",
+            "idNum": "2012.0856.001"
+        }
+    },
+
+    {"tagID": "slide2",
+        "info": {
+            "name": "Nemesia Seeds Microscope Slide",
+            "year": 1916,
+            "desc": "A microscope slide containing seeds from the Nemesia plant, prepared by Charles Robert Percival.",
+            "idNum": "2012.0850.001"
+        }
+    },
+
+    {"tagID": "slide3",
+        "info": {
+            "name": "Paulowina Tomentosa Seed Microscope Slide",
+            "year": 1916,
+            "desc": "A microscope slide containing seeds from a Paulowina Tomentosa, also known by its common name the Empress Tree. The slide was prepared by Charles Robert Percival.",
+            "idNum": "2012.0849.001"
+        }
+    },
+
+    {"tagID": "slide4",
+        "info": {
+            "name": "Campsis Radicans Seed Microscope Slide",
+            "year": 1919,
+            "desc": "A microscope slide containing seeds from a Campsis Radicans, also known by its common name the Trumpet Vine. The slide was prepared by Charles Robert Percival.",
+            "idNum": "2012.0878.001"
+        }
+    },
+
+    {"tagID": "slide5",
+        "info": {
+            "name": "Eryngium Amethystinum Seed Microscope Slide",
+            "year": 1923,
+            "desc": "A microscope slide containing seeds from an Eryngium Amethystinum, also known by its common name the Amethyst Sea Holly. The slide was prepared by Charles Robert Percival.",
+            "idNum": "2012.0918.001"
+        }
+    },
+
+    {"tagID": "slide6",
+        "info": {
+            "name": "Puss Moth Larva Microscope Slide",
+            "year": 1895,
+            "desc": "A microscope slide containing a section of a Puss Moth larva. This slide prepared by Charles Robert Percival estimated between 1895-1954.",
+            "idNum": "2012.0954.001"
+        }
+    },
+    
+    {"tagID": "slide7",
+        "info": {
+            "name": "Drinker Moth Larva Microscope Slide",
+            "year": 1895,
+            "desc": "A microscope slide containing a section of a Drinker Moth larva. This slide prepared by Charles Robert Percival estimated between 1895-1954.",
+            "idNum": "2012.0958.001"
+        }
+    },
+
+    {"tagID": "slide8",
+        "info": {
+            "name": "Dragonfly Larvae Microscope Slide",
+            "year": 1923,
+            "desc": "A microscope slide containing 3 dragonfly larvae, prepared by Charles Robert Percival.",
+            "idNum": "2012.0985.001"
+        }
+    },
+
+    {"tagID": "slide9",
+        "info": {
+            "name": "Anthrenus Scrophulariae Microscope Slide",
+            "year": 1942,
+            "desc": "A microscope slide containing a Anthrenus Scrophulariae, alson known by its common name the Carpet Beetle. The slide was prepared by Charles Robert Percival.",
+            "idNum": "2012.0990.001"
+        }
+    },
+
+    {"tagID": "slide10",
+        "info": {
+            "name": "Dytiscus Larva Microscope Slide",
+            "year": 1923,
+            "desc": "A microscope slide containing a Dytiscus larva, also known by its common names the Water Beetle or Diving Beetle. The slide was prepared by Charles Robert Percival.",
+            "idNum": "2012.1038.001"
+        }
+    },
+
+    {"tagID": "soupFan",
+        "info": {
+            "name": "Campbell Soup Fan",
+            "year": 1931,
+            "desc": "A hand-held paper fan created by the Campbell Soup Company to market their products. The fan is created int eh shape of a tomato, displaying an image of a tomato on the front side, and a list of all the soups created by the company on the back side. Campbell's canned soup was extremely popular between 1930 and the early 2000s.",
+            "idNum": "2013.0085.001"
+        }
+    },
+
+    {"tagID": "beanPainting",
+        "info": {
+            "name": "Bean Painting",
+            "year": 1930,
+            "desc": "A watercolour painting of various beans, created by Faith Fyles in the early 1930s. This painting was used as part of the horticultural research program at the Central Experimental Farm. Faith was a botanist and the first female professional staff hired at the Central Experiemental Farm. Before reliable colour photography was invented, artists were hired to create accurate records of specimens' colours and details through paintings.",
+            "idNum": "1987.2176.001"
+        }
+    },
+
+    {"tagID": "milkCan",
+        "info": {
+            "name": "Bordens Milk Can",
+            "year": 1934,
+            "desc": "A Bordens brand metal milk can from 1934.",
+            "idNum": "1975.1036.001"
+        }
+    },
+
+    {"tagID": "car",
+        "info": {
+            "name": "1937 Packard 1501 Super Eight Coupe Roadster",
+            "year": 1937,
+            "desc": "This car was part of the Packard Motor Car Company's 1501 Super Eight car line. This particular model was the Coupe Roadster which featured 2 front seats, fold-down backseats, a foldable trunk grate, and a convertible soft-top roof.",
+            "idNum": "1976.0357.001"
+        }
+    },
+
+    {"tagID": "tRail",
+        "info": {
+            "name": "T Rail",
+            "year": 1895,
+            "desc": "A steel T rail manufactured by Cammells in 1895. These types of rails weighed between 65-100lbs per yard and were used in the creation of the Canadian Railway lines.",
+            "idNum": "1986.0898.001"
+        }
+    },
+
+    {"tagID": "camera",
+        "info": {
+            "name": "REXO 3A Camera",
+            "year": 9999,
+            "desc": "A REXO 3A camera manufactured by Burke & James Inc. in Chicago in the early 1900s.",
+            "idNum": "1986.0263.001"
+        }
+    },
+
+    {"tagID": "lens",
+        "info": {
+            "name": "Ingento Series Correcting Yellow Lens",
+            "year": 9999,
+            "desc": "A yellow colour correcting camera lens manufactured by Burke & James Inc..",
+            "idNum": "2001.0402.001"
+        }
+    },
+
+    {"tagID": "antenna",
+        "info": {
+            "name": "Television Antenna",
+            "year": 9999,
+            "desc": "A RMS 82 antenna that was used in conjunction with a television to receive television programs.",
+            "idNum": "1973.0504.001"
+        }
+    },
+
+    {"tagID": "television",
+        "info": {
+            "name": "Streamliner Television",
+            "year": 1954,
+            "desc": "The 1703-L model television, called the Streamliner, was manufactured by Sparton of Canada Ltd. in 1954. This model was a table mounted television and made available in walnut.",
+            "idNum": "1976.0467.001"
+        }
+    },
+
+    {"tagID": "radioST",
+        "info": {
+            "name": "Phonola Radio",
+            "year": 1930,
+            "desc": "The Grimes Radio Corp Ltd., later known as Dominion Electrohome and then Phonola, created a series of radios that had internal speakers in the early 1920s. This is a 4875 model Phonola radio.",
+            "idNum": "1998.0125.001"
+        }
+    },
+
+    {"tagID": "telescope",
+        "info": {
+            "name": "Questar Telescope",
+            "year": 1960,
+            "desc": "Manufactured by Questar Corp., this telescope was used by the Dominion Observatory in Ottawa to provide distinct magnified images of distant objects for astronomy and nature studies.",
+            "idNum": "1966.0228.001"
+        }
+    },
+
+    {"tagID": "lighthouse",
+        "info": {
+            "name": "Money Point Lighthouse",
+            "year": 1908,
+            "desc": "This lighthouse originally operated at Cape Race, Newfoundland, from 1856-1907. In 1908 it was dismantled and moved to Money Point at Cape North, Nova Scotia, where it remained in service until 1980. By the end of 1980, the lighthouse had been moved to Ottawa where it sits in Ingenium's Techonology Park today.",
+            "idNum": "1980.0768.001"
+        }
+    },
+
+    {"tagID": "keycard",
+        "info": {
+            "name": "Royal Canadian Air Force ID",
+            "year": 1943,
+            "desc": "The ID of Royal Canadian Air Force Women's Division member, Lillian Elizabeth Miller.",
+            "idNum": "1995.1722.001"
+        }
+    },
+
+    {"tagID": "terminal",
+        "info": {
+            "name": "ANIK A-1 Terminal",
+            "year": 1971,
+            "desc": "This terminal was used to send and receive information from the ANIK A-1 satellite. With the launch of ANIK A-1 in 1972, Canada became the first country to operate a commercial satellite communications system, providing service to customers through numerous stations acorss the country.",
+            "idNum": "1986.0033.001"
+        }
+    },
+
+    {"tagID": "planeModel",
+        "info": {
+            "name": "Bell X-1 Plane Model",
+            "year": 1972,
+            "desc": "A scale model of the Bell X-1 (model 44) plane manufactured by Aeronautical & General Modelmakers Ltd.. The tail fin reads '6062'.",
+            "idNum": "1972.0296.001"
+        }
+    },
+
+    {"tagID": "starAtlas",
+        "info": {
+            "name": "Deep Space 3-D Star Atlas",
+            "year": 1977,
+            "desc": "A star atlas that was titled Deep Space 3-D. This atlas was a teaching aid that illustrated maps of the stars and helped viewers perceive the stars in space as existing in a three-dimensional context. A stereo map and viewer are provided.",
+            "idNum": "1995.1016.001"
+        }
+    },
+
+    {"tagID": "propellerBlade2",
+        "info": {
+            "name": "Requa Gibson 2-Bladed Propeller",
+            "year": 1910,
+            "desc": "A 2-bladed plane propeller manufactured by Requa Gibson. Requa Gibson was the first U.S. propeller production facility founded in 1909 and was headed by Canadian engineer Wallace R. Turnbull.",
+            "idNum": "1966.0018.001"
+        }
+    },
+
+    {"tagID": "propellerBlade3",
+        "info": {
+            "name": "Grumman Goose's 3-Bladed Hartzell Inc. Propeller",
+            "year": 1964,
+            "desc": "A 3-bladed plane propeller manufactured by Hartzell Propeller Inc.. This blade is installed on the Grumman Goose which was a plane that operated for the Royal Canadian Mounted Police for almost 50 years as a missing persons and wanted vehicle search plane. This is the longest record of a plane in public service in Canadian aviation history.",
+            "idNum": "1995.1635.001"
+        }
+    },
+
+    {"tagID": "radioAS",
+        "info": {
+            "name": "Coronada Radio",
+            "year": 1960,
+            "desc": "A Coronada radio manufactured by Thorcraft Radio Company. This radio was a superheterodyne receiver and was used to detect and amplify radio signals.",
+            "idNum": "2001.0326.001"
         }
     }
+
 ]
