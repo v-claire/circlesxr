@@ -1,114 +1,172 @@
-//let pickupEnt;
 /*
-function pickupfunct()
-{
-    
-    //let pickupEnt = this.el;
-    this.el.setAttribute('id', {pickedup});
+      AFRAME.registerComponent("eggtester", {
+        init: function() {
+            self.el.addEventListener('click', (e) => {
+                
+            });
 
-};
-*/
-
+        }
+      });*/
 
 function eggtester()
 {
-    //var sceneEl = document.querySelector('a-scene');
-    //var entityEl = document.querySelector('a-entity');
-    //var goodegg = sceneEl.entityEl.querySelector('#egg1');
+// gltf-model="#egg_model"
+    //let  = document.getElementById('indicater');
+                //console.log(PickUpObj);
 
-    let can = 'no';
-    var sceneEl = document.querySelector('a-scene');
+                //document.getElementById('indicater')
 
-    console.log(sceneEl.querySelector('#egg1'));
-    let indy = sceneEl.querySelector('#indicater');
+            var elPick = PickUpObj; //CIRCLES.getPickedUpElement();
 
-    var elPick = CIRCLES.getPickedUpElement();
-   // document.querySelector('pickedup');
-   /* var el = this.el;
-    el.getAttribute('id');*/
-    console.log(elPick);
+            if (elPick != null)
+            {
+                IDin = elPick.getAttribute('id');
+                glb = elPick.getAttribute('gltf-model');
+            }
 
-    if (elPick)
-    {
-        can = elPick.getAttribute('id');
-    }
+                let thisegg = document.getElementById(glb);
+                if (IDin == 'egg1')
+                {
+                    //elPick.setAttribute('gltf-model', '#goodegg_model');
+                    elPick.removeAttribute("gltf-model");
+                    elPick.setAttribute('gltf-model', "#goodegg_model");
 
-    if (can == 'egg1')
-    {
-        console.log('yes');
-        indy.setAttribute('material', {color:'rgb(0, 250, 0)'});
-    }
-    else
-    {
-        console.log('no');
-        indy.setAttribute('material', {color:'rgb(250, 0, 0)'});
-    }
+                }
+                else
+                {
+                    elPick.removeAttribute("gltf-model");
+                    elPick.setAttribute('gltf-model', '#badegg_model');
+                    //elPick.setAttribute('gltf-model', '#badegg_model');
+                }
+    
 
 }
 
-
-//circles-pickup-object="pickupPosition: [object Object]; dropPosition: [object Object];"
-//circles-artifact origPosition: 
-//dropPosition
-//"antenna"
-//el.object3D.position.set(1, 2, 3);
-
-function nestplace()
+function nestplace() //done 
 {
-    var elPick = CIRCLES.getPickedUpElement();
-    //releaseObjFunc
-    let can = 'no';
+    var elPick = PickUpObj;
+    let IDin = 'no';
 
-    var sceneEl = document.querySelector('a-scene');
-    let chicken1 = sceneEl.querySelector('#chickenOnSlides');
-    let slides = sceneEl.querySelector('#slideCaseClosed');
+    let chicken1 = document.getElementById('chickenOnSlides');
+    let chicken2 = document.getElementById('chickenInCoop');
+    let slides = document.getElementById('slideCaseClosed');
+    //let nest = document.getElementById('nest');
 
     if (elPick)
     {
-        can = elPick.getAttribute('id');
+        IDin = elPick.getAttribute('id');
     }
 
-    if (can == 'egg1')
+    if (IDin == 'egg1')
     {
-        //chicken1.setAttribute(visible,{"false"});
-        //visible="false"
-        //chicken2.setAttribute(visible,{"true"});
-        chicken1.setAttribute('position', {x:-14, y:0, z:-6});
-        elPick.setAttribute('circles-pickup-object', {dropPosition:'3.189 -0.32 -0.31'});
-        //CONTEXT_AF.release(CONTEXT_AF);
-        //CIRCLES.EVENTS.RELEASE_THIS_OBJECT
-        //chicken1.emit(CIRCLES.EVENTS.RELEASE_THIS_OBJECT);
-        //circles-interactive-object="type:highlight; enabled:false;"
-        slides.setAttribute('circles-interactive-object', {enabled:true});
-        slides.setAttribute('circles-pickup-object', {enabled:true});
-        //CIRCLES.releaseObjFunc();
+        chicken1.setAttribute('visible', false);
+        chicken2.setAttribute('visible', true);
+        drop(3.189, -0.32, -0.31, 0, 0, 0);
         
+        slides.setAttribute('circles-interactive-object', {enabled:true}); //type:highlight
+        //slides.setAttribute('pickupable', {enable:true});
+        //elPick.setAttribute('pickupable', {enable:false});
+        //nest.setAttribute('circles-interactive-object', {type:null}); //no work fix later
+        //nest.setAttribute('circles-interactive-object', {enabled:false});
+        
+        //elPick.setAttribute('pickupable', {enabled:false});
     }
 }
-//setAttribute('visible', true);
-//<a-entity id="release_control" class="button interactive_toggle" position="0 -0.45 0" geometry="primitive: plane; width: 0.2; height: 0.2" material="src: /global/assets/textures/icons/Icon-Release.png; color: rgb(255,255,255); shader: flat; transparent: true" circles-interactive-visible="false" scale=""></a-entity>
-//<a-entity id="egg1" position="-1.97838 -0.17264 -1.30793" rotation="-8.481479150569385e-16 -8.481479150569375e-15 -3.392591660227752e-15" scale="30.000000000000007 29.99999999999999 30" gltf-model="/worlds/TOTL_world/assets/models/egg.glb" circles-sphere-env-map="src: [object HTMLImageElement]" shadow="cast: false" circles-pickup-networked="className: and-and-dark-spread-cloths-silver" circles-artefact="inspectScale: 30 30 30; inspectPosition: 1 -0.5 1.3; label_on: false; description_on: false" circles-interactive-object="" class="interactive and-and-dark-spread-cloths-silver narrative circles_artefact" circles-material-extend-fresnel="fresnelOpacity: 0; fresnelPow: 2" sound="volume: 0.5" circles-pickup-object="pickupPosition: 1 -0.5 1.3; pickupScale: 30 30 30; dropPosition: 0 0.48 0.2; dropRotation: 0 90 90; dropScale: 30 30 30; animate: true" circles-object-world="world: TOTL_world; id: egg1; pickedup: true; timeCreated: 1711052868260" networked="template: #circles-interactive-object-template; synchWorldTransforms: true; networkId: egl4he2; owner: prR4DCtgk1qNQrWnAAAD; creator: prR4DCtgk1qNQrWnAAAD" animation__highlightanim="property: circles-material-extend-fresnel.fresnelOpacity; to: 0; dur: 100" animation__cpo_position="property: position; dur: 0; isRawProperty: true; to: [object Object]; easing: easeInOutQuad" animation__cpo_rotation="property: rotation; dur: 0; isRawProperty: true; to: [object Object]; easing: easeInOutQuad" animation__cpo_scale="property: scale; dur: 0; isRawProperty: true; to: [object Object]; easing: easeInOutQuad"></a-entity>
 
-function slidesActive()
+function slidesActive() 
 {
-    var sceneEl = document.querySelector('a-scene');
-    let gDoor = sceneEl.querySelector('#garageDoor');
-    let slidesOpen = sceneEl.querySelector('#slideCase');
-    let slides = sceneEl.querySelector('#slideCaseClosed');
-    let place = sceneEl.querySelector('#placebox');
-    var elPick = CIRCLES.getPickedUpElement();
+    //let gDoor = document.getElementById('garageDoor');
+    let slidesOpen = document.getElementById('slideCase');
+    let slides1 = document.getElementById('slide1');
+    let slides2 = document.getElementById('slide2');
+    let slides3 = document.getElementById('slide3');
+    let slides4 = document.getElementById('slide4');
+    let slides5 = document.getElementById('slide5');
+    let slides6 = document.getElementById('slide6');
+    let slides7 = document.getElementById('slide7');
+    let slides8 = document.getElementById('slide8');
+    let slides9 = document.getElementById('slide9');
+    let slides10 = document.getElementById('slide0');
+    //let slides = document.getElementById('slideCaseClosed');
+    let place = document.getElementById('placebox');
+    var elPick = PickUpObj;
 
-    let can = 'no';
+    let IDin = 'no';
     if (elPick)
     {
-        can = elPick.getAttribute('id');
+        IDin = elPick.getAttribute('id');
     }
-    if (can == 'slideCaseClosed')
+    if (IDin == 'slideCaseClosed')
     {
         slidesOpen.setAttribute('visible', true);
-        gDoor.setAttribute('visible', false);
-        slides.setAttribute('visible', false);
+
+        slides1.setAttribute('visible', true);
+        slides2.setAttribute('visible', true);
+        slides3.setAttribute('visible', true);
+        slides4.setAttribute('visible', true);
+        slides5.setAttribute('visible', true);
+        slides6.setAttribute('visible', true);
+        slides7.setAttribute('visible', true);
+        slides8.setAttribute('visible', true);
+        slides9.setAttribute('visible', true);
+        slides10.setAttribute('visible', true);
+
+        drop(-12.0, 0.1, -6.5, 0, 0, 0);
+        elPick.removeObject3D('mesh');
+        //gDoor.setAttribute('visible', false);
+        //slides.setAttribute('visible', false);
         place.setAttribute('visible', false);
+
+        //slides.removeAttribute('circles-interactive-object');
     }
-    
+
 }
+
+AFRAME.registerComponent("slides", {
+    init: function() {
+        var self = this;
+        let slidesDisp = document.getElementById('slide_screen');
+        self.el.addEventListener('click', (e) => {
+
+            slidenum = self.el.getAttribute('id');
+            slidesDisp.setAttribute('visible', true);
+            switch (slidenum)
+            {
+                case 'slide0':
+                    slidesDisp.setAttribute('src', '#slide0_img');
+                    break;
+                case 'slide1':
+                    slidesDisp.setAttribute('src', '#slide1_img');
+                    break;
+                case 'slide2':
+                    slidesDisp.setAttribute('src', '#slide2_img');
+                    break;
+                case 'slide3':
+                    slidesDisp.setAttribute('src', '#slide3_img');
+                    break;
+                case 'slide4':
+                    slidesDisp.setAttribute('src', '#slide4_img');
+                    break;
+                case 'slide5':
+                    slidesDisp.setAttribute('src', '#slide5_img');
+                    break;
+                    case 'slide6':
+                    slidesDisp.setAttribute('src', '#slide6_img');
+                    break;
+                case 'slide7':
+                    slidesDisp.setAttribute('src', '#slide7_img');
+                    break;
+                case 'slide8':
+                    slidesDisp.setAttribute('src', '#slide8_img');
+                    break;
+                default:
+                    slidesDisp.setAttribute('src', '#slide9_img');
+                    break;
+            }
+        });
+    }
+});
+
+//http://localhost:1111/w/TOTL_world/?group=explore
+
+//localhost:1111/add-all-test-data
