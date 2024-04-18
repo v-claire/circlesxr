@@ -254,7 +254,6 @@ function checkPin(linkobj) {
     if (pinCount == 1) {
         if (pinAttempt.a == correctPin1.a && pinAttempt.b == correctPin1.b && pinAttempt.c == correctPin1.c && pinAttempt.d == correctPin1.d) {
             dosomthing(linkobj);  
-            //challengeComplete = true;
             deletePinPad();
         }
         else {
@@ -267,7 +266,6 @@ function checkPin(linkobj) {
             pin1Entered = true;
             if (pin1Entered == true && pin2Entered == true) {
                 dosomthing("test"); 
-                //challengeComplete = true;
                 deletePinPad();
             }
         }
@@ -379,64 +377,19 @@ AFRAME.registerComponent('create-pinpad', {
             makePinpad(this, name);
         });
     },
-    /*tick: function() {
-        console.log(challengeComplete);
-        if (challengeComplete == true)
-        {
-            console.log(this.data.linkobj);
-           //dosomthing(this.data.linkobj);
-            // let IDin = null;
-            // if (element)
-            // {
-            //     console.log(IDin);
-            //     IDin = element.getAttribute('id');
-            //     console.log(IDin);
-            // }
-            // if (IDin == 'garageKeyPad'){
-            //     let garageDoor = document.getElementById('garageDoor');
-            //     console.log(IDin);
-            //     garageDoor.setAttribute('visible', false);
 
-            //     /*for (i = 0; i > 20; i++)
-            //     {
-            //         garageDoor.object3D.position.y += 1;
-            //     }*/
-            //     challengeComplete = false;
-            // }
-            // else if (IDin == 'trunkKey'){
-            //     let trunk = document.getElementById('trunkTrunk');
-            //     let opentrunk = document.getElementById('trunkTrunk_open');
-            //     console.log(IDin);
-            //     trunk.setAttribute('visible', false);
-            //     opentrunk.setAttribute('visible', true);
-
-            //     
-            // }*/
-           //challengeComplete = false;
-        //}
-   // }
 });
 
 function dosomthing(linkobj)
 {
-    //console.log(linkobj + "end of the line cowboy");
-    //let item = document.getElementById(linkobj);
-   // console.log(item);
 
     if (linkobj == 'garageKeyPad'){
         let garageDoor = document.getElementById('garageDoor');
-        //console.log(IDin);
         garageDoor.setAttribute('visible', false);
-
-        //for (i = 0; i > 20; i++)
-        //{
-        //    garageDoor.object3D.position.y += 1;
-        //}
     }
     else if (linkobj == 'trunkKey'){
         let trunk = document.getElementById('trunkTrunk');
         let opentrunk = document.getElementById('trunkTrunk_open');
-        //console.log(IDin);
         trunk.setAttribute('visible', false);
         opentrunk.setAttribute('visible', true);
     }
