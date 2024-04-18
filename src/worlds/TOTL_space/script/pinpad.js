@@ -2,6 +2,7 @@
 
 // ---------------- PIN ENTRY SUCCESS VARIABLE --------------------------------
 let challengeComplete = false;
+let element = null;
 // ----------------------------------------------------------------------------
 
 // Operational Variables (No need to adjust these)
@@ -18,11 +19,11 @@ let pin2Entered = false;
 let pin3Entered = false;
 
 // ------------ PIN PAD CREATION FUNCTION ------------------------------------
-function makePinpad(CONTEXT_AF) {
+function makePinpad(CONTEXT_AF, linkobj) {
     const PIN_BUTTON_SIZE = 0.2;
-
+    console.log(linkobj + " from make pin pad");
     let aScene = document.querySelector('a-scene');
-
+    
     // Setting up a wrapper entity for the pin pad to exist within
     CONTEXT_AF.pinPadWrapper = document.createElement('a-entity');
     CONTEXT_AF.pinPadWrapper.setAttribute('id', 'pinpad_wrapper');
@@ -98,7 +99,7 @@ function makePinpad(CONTEXT_AF) {
                 break;
             case 12:
                 CONTEXT_AF.pinButton.addEventListener('click', function (){
-                    checkPin();
+                    checkPin(linkobj);
                 });
                 break;
             default:
@@ -241,7 +242,8 @@ function modifyAttempt(numToMod) {
 
 // ---------- CHECKING PIN TO SEE IF CORRECT -----------------------
 
-function checkPin() {
+function checkPin(linkobj) {
+    console.log(linkobj + " from check");
     if (pinDigits == 3) {
         pinAttempt.d = pinAttempt.c;
         pinAttempt.c = pinAttempt.b;
@@ -251,7 +253,8 @@ function checkPin() {
     
     if (pinCount == 1) {
         if (pinAttempt.a == correctPin1.a && pinAttempt.b == correctPin1.b && pinAttempt.c == correctPin1.c && pinAttempt.d == correctPin1.d) {
-            challengeComplete = true;
+            dosomthing(linkobj);  
+            //challengeComplete = true;
             deletePinPad();
         }
         else {
@@ -263,7 +266,8 @@ function checkPin() {
             console.log("First correct pin recieved!");
             pin1Entered = true;
             if (pin1Entered == true && pin2Entered == true) {
-                challengeComplete = true;
+                dosomthing("test"); 
+                //challengeComplete = true;
                 deletePinPad();
             }
         }
@@ -338,12 +342,17 @@ AFRAME.registerComponent('create-pinpad', {
         numPins: {type:'number', default:1},
         firstAnswer: {type:'number', default:1111},
         secondAnswer: {type:'number', default:1111},
-        thirdAnswer: {type:'number', default:1111}
+        thirdAnswer: {type:'number', default:1111},
+        linkobj:     {type:"string", default:""}
     },
 
     init: function() {
         const data = this.data;
         this.el.addEventListener('click', function() {
+            console.log(this.el);
+            element = this.el;
+            let name = data.linkobj;
+            console.log("name = " + name);
             pinDigits = data.digits;
             pinCount = data.numPins;
             let pin1a = Math.floor(data.firstAnswer/1000);
@@ -366,14 +375,62 @@ AFRAME.registerComponent('create-pinpad', {
                 let pin3d = (data.thirdAnswer - ((pin3a * 1000) + (pin3b * 100) + (pin3c * 10))); 
                 correctPin3 = {a:pin3a, b:pin3b, c:pin3c, d:pin3d};
             }
-
-            makePinpad(this);
+            currentDigit = 1;
+            makePinpad(this, name);
         });
     },
-    tick: function() {
+    /*tick: function() {
+        console.log(challengeComplete);
         if (challengeComplete == true)
         {
-            
-        }
-    }
+            console.log(this.data.linkobj);
+           //dosomthing(this.data.linkobj);
+            // let IDin = null;
+            // if (element)
+            // {
+            //     console.log(IDin);
+            //     IDin = element.getAttribute('id');
+            //     console.log(IDin);
+            // }
+            // if (IDin == 'garageKeyPad'){
+            //     let garageDoor = document.getElementById('garageDoor');
+            //     console.log(IDin);
+            //     garageDoor.setAttribute('visible', false);
+
+            //     /*for (i = 0; i > 20; i++)
+            //     {
+            //         garageDoor.object3D.position.y += 1;
+            //     }*/
+            //     challengeComplete = false;
+            // }
+            // else if (IDin == 'trunkKey'){
+            //     let trunk = document.getElementById('trunkTrunk');
+            //     let opentrunk = document.getElementById('trunkTrunk_open');
+            //     console.log(IDin);
+            //     trunk.setAttribute('visible', false);
+            //     opentrunk.setAttribute('visible', true);
+
+            //     
+            // }*/
+           //challengeComplete = false;
+        //}
+   // }
 });
+
+function dosomthing(linkobj)
+{
+    //console.log(linkobj + "end of the line cowboy");
+    //let item = document.getElementById(linkobj);
+   // console.log(item);
+
+    if (linkobj == 'Terminal'){
+        let glassbox = document.getElementById('buttonCover');
+        //console.log(IDin);
+        glassbox.setAttribute('visible', false);
+        //opentrunk.setAttribute('visible', true);
+        //for (i = 0; i > 20; i++)ssssssss
+        //{
+        //    garageDoor.object3D.position.y += 1;
+        //}
+    } 
+}
