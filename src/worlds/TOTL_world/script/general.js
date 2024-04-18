@@ -24,7 +24,7 @@ function eggtester()
                 glb = elPick.getAttribute('gltf-model');
             }
 
-                let thisegg = document.getElementById(glb);
+                //let thisegg = document.getElementById(glb);
                 if (IDin == 'egg1')
                 {
                     //elPick.setAttribute('gltf-model', '#goodegg_model');
@@ -166,6 +166,31 @@ AFRAME.registerComponent("slides", {
         });
     }
 });
+
+
+function tapcard() //done 
+{
+    var elPick = PickUpObj;
+    let IDin = 'no';
+
+    let keyCard = document.getElementById('keyCard');
+    let door = document.getElementById('chickenInCoop');
+    //let nest = document.getElementById('nest');
+
+    if (elPick)
+    {
+        IDin = elPick.getAttribute('id');
+    }
+
+    if (IDin == 'keyCard')
+    {
+        keyCard.setAttribute('visible', false);
+        door.setAttribute('visible', false);
+        drop( 0, 0, 0, 0, 0, 0);
+        
+        //slides.setAttribute('circles-interactive-object', {enabled:true}); //type:highlight
+    }
+}
 
 //http://localhost:1111/w/TOTL_world/?group=explore
 

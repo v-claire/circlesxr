@@ -28,7 +28,7 @@ AFRAME.registerComponent('tvplace', {
             if (IDin == 'antenna')
             {
                 console.log("Tv drop");
-                drop(TvPos.x, 1.8, TvPos.z, 0, -30, 0);
+                drop(TvPos.x, 1.6, TvPos.z, 0, -30, 0);
             }
 
             if (TvID == 'television1')
@@ -48,6 +48,9 @@ AFRAME.registerComponent('tvplace', {
             }
             
         });
+    },
+    tick: function()
+    {
 
     }
 });

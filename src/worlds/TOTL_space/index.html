@@ -8,6 +8,7 @@
     <!-- add your custom scripts here -->
     <!-- <script src="/worlds/hub/scripts/hub.js"></script> -->
     <script src="/worlds/TOTL_space/script/SpaceRoom.js"></script>
+    <script src="/worlds/TOTL_space/script/pinpad.js"></script>
     
   </head>  
   <body>
@@ -23,6 +24,9 @@
         <!-- ^ credit: Ingenium @ https://ingeniumcanada.org/ -->
         <img id="AS_wall_img" src="/worlds/TOTL_space/assets/textures/AS_walls.png" crossorigin="anonymous">
         <!-- ^ credit: flaticon @ https://www.flaticon.com/ -->
+        <img id="constellation_img" src="/worlds/TOTL_space/assets/images/constellation_monitor.png" crossorigin="anonymous">
+        <img id="radio_img" src="/worlds/TOTL_space/assets/images/radioInstructions.png" crossorigin="anonymous">
+        <img id="telescope_img" src="/worlds/TOTL_space/assets/images/telescopeInstructions.png" crossorigin="anonymous">
 
 
         <!-- sound effects-->
@@ -34,6 +38,7 @@
         <a-asset-item id="radio_model" src="/worlds/TOTL_space/assets/models/aviationSpaceRadio.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="radioDial_model" src="/worlds/TOTL_space/assets/models/aviationSpaceRadioDial.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="chair_model" src="/worlds/TOTL_space/assets/models/chair.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="constellation_model" src="/worlds/TOTL_space/assets/models/constellation.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="lighthouse_model" src="/worlds/TOTL_space/assets/models/lighthouse.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="monitor_model" src="/worlds/TOTL_space/assets/models/monitor.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="plane_model" src="/worlds/TOTL_space/assets/models/plane.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
@@ -43,6 +48,7 @@
         <a-asset-item id="propeller_3blades_model" src="/worlds/TOTL_space/assets/models/threeBladedPropeller.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="propeller_2blades_model" src="/worlds/TOTL_space/assets/models/twoBladedPropeller.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
 
+        <!--<a-asset-item id="car_model" src="/worlds/TOTL_space//worlds/TOTL_space/assets/models/car.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>-->
 
         <!-- Circles' built-in assets [REQUIRED] -->
         <circles-assets/>
@@ -55,12 +61,15 @@
       <!------------------------------------------------------------------------------>
 
       <!-- circles checkpoints -->
-      <a-entity circles-checkpoint position="0 0.35 0"></a-entity>
-      <a-entity circles-checkpoint position="2 0.35 6"></a-entity>
-      <a-entity circles-checkpoint position="-3 0.35 5"></a-entity>
-      <a-entity circles-checkpoint position="-2 0.35 -7"></a-entity>
-      <a-entity circles-checkpoint position="8 0.35 -7"></a-entity>
-      
+      <a-entity circles-checkpoint position="0 -0.39 -0.5"></a-entity>
+      <a-entity circles-checkpoint position="3.4 -0.39 4.8"></a-entity>
+      <a-entity circles-checkpoint position="3 -0.39 -4.1"></a-entity>
+      <a-entity circles-checkpoint position="-3 -0.39 -3"></a-entity>
+      <a-entity circles-checkpoint position="-2 -0.39 6"></a-entity>
+      <a-entity circles-checkpoint position="-5 -0.39 -6.7"></a-entity>
+
+
+      <!--<a-entity id="car" position="0 0 0" scale="60 60 60"rotation="0 25 0" gltf-model="#car_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>-->
 
       <!-- load room models -->
       <a-entity id="room" position="0 -0.5 0" gltf-model="#room_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
@@ -71,10 +80,9 @@
 
 
       <!-- desk -->
+      <a-entity id="chair" position="2 -0.5 -7.5" scale="30 30 30" gltf-model="#chair_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
       <a-entity id="table" position="2 -0.5 -6" scale="30 30 30" gltf-model="#table_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>    
           <a-entity id="plane" position="3 0.7 -5.2" rotation="0 -80 0" scale="30 30 30" gltf-model="#plane_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
-          <a-entity id="chair" position="2 -0.5 -7.5" scale="30 30 30" gltf-model="#chair_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
-
 
       <!-- propellers -->
       <a-entity position="-3 2.5 -10" rotation="0 0 40" scale="30 30 30" gltf-model="#propeller_2blades_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
@@ -83,20 +91,25 @@
 
 
       <!-- radio -->
-      <a-entity position="-4.5 0.15 -3" geometry="primitive:box; height:1.3; width:0.8; depth:1.2;" material="color:white;" circles-sphere-env-map="src:#skyMap" shadow="case:true; receive:true;"></a-entity>
-          <a-entity id="radio" position="-4.5 0.8 -3" rotation="0 90 0" scale="100 100 100" gltf-model="#radio_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
-              <a-entity id="radioDial" position="-4.5 0.8 -3" rotation="0 90 0" scale="100 100 100" gltf-model="#radioDial_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
+      <a-entity position="-4.5 0.15 -3" geometry="primitive:box; height:1.3; width:0.8; depth:2.2;" material="color:gray;" circles-sphere-env-map="src:#skyMap" shadow="case:true; receive:true;">
+        <a-image position="0.41 0 -0.1" rotation="0 90 0" src="#radio_img" width="2.5" height="1.5"></a-image></a-entity>
+        <a-entity id="radio" position="-4.5 0.8 -3" rotation="0 90 0" scale="100 100 100" gltf-model="#radio_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
+            <a-entity id="radioDial" position="-4.3 1.07 -3.260" rotation="0 90 0" scale="100 100 100" gltf-model="#radioDial_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
 
 
       <!-- telescope -->
-      <a-entity position="0 0.15 1" geometry="primitive:box; height:1.3; width:3; depth:1;" material="color:white;" circles-sphere-env-map="src:#skyMap" shadow="case:true; receive:true;"></a-entity>
-          <a-entity id="telescope" rotation="0 180 0" position="0 0.8 1" scale="30 30 30" gltf-model="#telescope_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
-          <a-entity id="monitor" rotation="0 90 0" position="1 0.8 1" scale="30 30 30" gltf-model="#monitor_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
-      
-
+      <a-entity position="0 0.15 1" geometry="primitive:box; height:1.3; width:3; depth:1;" material="color:gray;" circles-sphere-env-map="src:#skyMap" shadow="case:true; receive:true;">
+        <a-image position="0 0 -0.51" rotation="0 180 0" src="#telescope_img" width="2.5" height="1.5"></a-image></a-entity>
+        <a-entity id="telescope" rotation="0 180 0" position="0 0.8 1" scale="30 30 30" gltf-model="#telescope_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
+        <a-entity id="monitor" rotation="0 90 0" position="1 0.8 1" scale="30 30 30" gltf-model="#monitor_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
+        <a-image position="1 1.25 0.82" rotation="0 180 0" src="#constellation_img" width="1" height="0.6"></a-image>
+        <a-entity id="constellationSheet" rotation="0 180 0" position="-1 0.8 1" gltf-model="#constellation_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
+    
       <!-- terminal -->
-      <a-entity position="4.6 0.15 4.8" geometry="primitive:box; height:1.3; width:1.2; depth:2.2;" material="color:white;" circles-sphere-env-map="src:#skyMap" shadow="case:true; receive:true;"></a-entity>
-          <a-entity id="terminal" position="4.6 0.8 4.8" rotation="0 -90 0" scale="50 50 50" gltf-model="#terminal_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
+      <a-entity position="4.6 0.15 4.8" geometry="primitive:box; height:1.3; width:1.2; depth:2.2;" material="color:gray;" circles-sphere-env-map="src:#skyMap" shadow="case:true; receive:true;"></a-entity>
+          <a-entity id="terminal" position="4.6 0.8 4.6" rotation="0 -90 0" scale="50 50 50" gltf-model="#terminal_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
+          <a-entity id="lighthouseButton" position="4.6 0.8 5.5" geometry="primitive:cylinder; height:0.3; radius:0.2;" material="color:green;" circles-sphere-env-map="src:#skyMap" shadow="case:true; receive:true;"></a-entity>
+          <a-entity id="buttonCover" position="4.6 0.8 5.5" geometry="primitive:box; height:0.4; width:0.5; depth:0.5;" material="color:rgb(200, 200, 255); opacity:0.7;" circles-sphere-env-map="src:#skyMap" shadow="case:true; receive:true;" visible="true"></a-entity>
 
 
       <!-- sky box -->
