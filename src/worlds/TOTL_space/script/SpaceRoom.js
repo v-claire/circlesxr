@@ -1,3 +1,89 @@
+AFRAME.registerComponent('rotate-dial', {
+    schema: {
+        dialPos: {type:'number', default:90}
+    },
+
+    init: function() {
+        const data = this.data;
+        this.el.addEventListener('click', function() {
+            let dial = document.getElementById("radioDial");
+            let currentChannel = data.dialPos;
+
+            let staticSound = document.getElementById("staticSound");
+            let musicSound = document.getElementById("musicSound");
+
+
+
+            switch (currentChannel) {
+                case 90:
+                    dial.setAttribute('rotation', {x: 0, y:90, z: -20});
+                    staticSound.setAttribute("circles-sound", "type:music; src:#music; autoplay:false; loop:true; volume:0.02; state:play;");
+                    musicSound.setAttribute("circles-sound", "type:music; src:#music; autoplay:false; loop:true; volume:0.02; state:stop;");
+                    currentChannel = 120;
+                    dial.setAttribute("dialPos", 120);
+                    break;
+
+                case 120:
+                    dial.setAttribute('rotation', {x: 0, y:90, z: -40});
+                    staticSound.setAttribute("circles-sound", "type:music; src:#music; autoplay:false; loop:true; volume:0.02; state:play;");
+                    musicSound.setAttribute("circles-sound", "type:music; src:#music; autoplay:false; loop:true; volume:0.02; state:stop;");
+                    currentChannel = 140;
+                    dial.setAttribute("dialPos", 140);
+                    break;
+
+                case 140:
+                    dial.setAttribute('rotation', {x: 0, y:90, z: -60});
+                    staticSound.setAttribute("circles-sound", "type:music; src:#music; autoplay:false; loop:true; volume:0.02; state:play;");
+                    musicSound.setAttribute("circles-sound", "type:music; src:#music; autoplay:false; loop:true; volume:0.02; state:stop;");
+                    currentChannel = 160;
+                    dial.setAttribute("dialPos", 160);
+                    break;
+
+                case 160:
+                    dial.setAttribute('rotation', {x: 0, y:90, z: 60});
+                    staticSound.setAttribute("circles-sound", "type:music; src:#music; autoplay:false; loop:true; volume:0.02; state:play;");
+                    musicSound.setAttribute("circles-sound", "type:music; src:#music; autoplay:false; loop:true; volume:0.02; state:stop;");
+                    currentChannel = 55;
+                    dial.setAttribute("dialPos", 55);
+                    break;
+
+                case 55:
+                    dial.setAttribute('rotation', {x: 0, y:90, z: 40});
+                    staticSound.setAttribute("circles-sound", "type:music; src:#music; autoplay:false; loop:true; volume:0.02; state:play;");
+                    musicSound.setAttribute("circles-sound", "type:music; src:#music; autoplay:false; loop:true; volume:0.02; state:stop;");
+                    currentChannel = 60;
+                    dial.setAttribute("dialPos", 60);
+                    break;
+
+                case 60:
+                    dial.setAttribute('rotation', {x: 0, y:90, z: 20});
+                    staticSound.setAttribute("circles-sound", "type:music; src:#music; autoplay:false; loop:true; volume:0.02; state:true;");
+                    musicSound.setAttribute("circles-sound", "type:music; src:#music; autoplay:false; loop:true; volume:0.02; state:play;");
+                    currentChannel = 70;
+                    dial.setAttribute("dialPos", 70);
+                    break;
+
+                case 70:
+                    dial.setAttribute('rotation', {x: 0, y:90, z: -20});
+                    staticSound.setAttribute("circles-sound", "type:music; src:#music; autoplay:false; loop:true; volume:0.02; state:play;");
+                    musicSound.setAttribute("circles-sound", "type:music; src:#music; autoplay:false; loop:true; volume:0.02; state:stop;");
+                    currentChannel = 120;
+                    dial.setAttribute("dialPos", 120);
+                    break;
+
+                default:
+                    break;
+
+
+
+            }            
+            
+        });
+    }
+});
+
+
+
 /*function Dial(row, num)
 {
     switch (num){
