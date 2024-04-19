@@ -266,7 +266,7 @@ function checkPin(linkobj) {
             console.log("First correct pin recieved!");
             pin1Entered = true;
             if (pin1Entered == true && pin2Entered == true) {
-                dosomthing("test"); 
+                dosomthing(linkobj); 
                 //challengeComplete = true;
                 deletePinPad();
             }
@@ -275,7 +275,8 @@ function checkPin(linkobj) {
             console.log("Second correct pin received!");
             pin2Entered = true;
             if (pin1Entered == true && pin2Entered == true) {
-                challengeComplete = true;
+                //challengeComplete = true;
+                dosomthing(linkobj);
                 deletePinPad();
             }
         }
@@ -288,7 +289,8 @@ function checkPin(linkobj) {
             console.log("First correct pin recieved!");
             pin1Entered = true;
             if (pin1Entered == true && pin2Entered == true && pin3Entered == true) {
-                challengeComplete = true;
+                //challengeComplete = true;
+                dosomthing(linkobj);
                 deletePinPad();
             }
         }
@@ -296,7 +298,8 @@ function checkPin(linkobj) {
             console.log("Second correct pin received!");
             pin2Entered = true;
             if (pin1Entered == true && pin2Entered == true && pin3Entered == true) {
-                challengeComplete = true;
+                //challengeComplete = true;
+                dosomthing(linkobj);
                 deletePinPad();
             }
         }
@@ -304,7 +307,8 @@ function checkPin(linkobj) {
             console.log("Third correct pin received!");
             pin3Entered = true;
             if (pin1Entered == true && pin2Entered == true && pin3Entered == true) {
-                challengeComplete = true;
+                //challengeComplete = true;
+                dosomthing(linkobj);
                 deletePinPad();
             }
         }
@@ -423,7 +427,7 @@ function dosomthing(linkobj)
     //let item = document.getElementById(linkobj);
    // console.log(item);
 
-    if (linkobj == 'Terminal'){
+    if (linkobj == 'terminal'){
         let glassbox = document.getElementById('buttonCover');
         //console.log(IDin);
         glassbox.setAttribute('visible', false);

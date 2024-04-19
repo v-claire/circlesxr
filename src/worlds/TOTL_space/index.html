@@ -40,6 +40,7 @@
         <a-asset-item id="chair_model" src="/worlds/TOTL_space/assets/models/chair.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="constellation_model" src="/worlds/TOTL_space/assets/models/constellation.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="lighthouse_model" src="/worlds/TOTL_space/assets/models/lighthouse.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="lighthouseOff_model" src="/worlds/TOTL_space/assets/models/lighthouseOff.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="monitor_model" src="/worlds/TOTL_space/assets/models/monitor.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="plane_model" src="/worlds/TOTL_space/assets/models/plane.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="table_model" src="/worlds/TOTL_space/assets/models/table.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
@@ -47,6 +48,7 @@
         <a-asset-item id="terminal_model" src="/worlds/TOTL_space/assets/models/terminal.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="propeller_3blades_model" src="/worlds/TOTL_space/assets/models/threeBladedPropeller.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="propeller_2blades_model" src="/worlds/TOTL_space/assets/models/twoBladedPropeller.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="keyPad_model" src="/worlds/TOTL_space/assets/models/keyPad.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
 
         <!--<a-asset-item id="car_model" src="/worlds/TOTL_space//worlds/TOTL_space/assets/models/car.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>-->
         <audio id="static" src="/worlds/TOTL_space/assets/sounds/static.wav" ></audio>
@@ -77,13 +79,17 @@
       <a-image position="-6.35 3.5 -6.7" rotation="0 90 0" src="#AS_img" width="1.5" height="1.5"></a-image>
       <!--<a-image position="-0.75 3.5 10" rotation="0 0 0" src="#AS_img" width="3" height="3"></a-image>-->
       <a-image position="-5.12 2.5 2.2" rotation="0 90 0" src="#AS_wall_img" width="15.5" height="6.5"></a-image>
-      <a-entity id="lighthouse" position="20 -4 20" scale="20 20 20" gltf-model="#lighthouse_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
+      <a-entity id="lighthouse" position="20 -4 20" scale="20 20 20" gltf-model="#lighthouseOff_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
 
 
       <!-- desk -->
       <a-entity id="chair" position="2 -0.5 -7.5" scale="30 30 30" gltf-model="#chair_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
       <a-entity id="table" position="2 -0.5 -6" scale="30 30 30" gltf-model="#table_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>    
-          <a-entity id="plane" position="3 0.7 -5.2" rotation="0 -80 0" scale="30 30 30" gltf-model="#plane_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
+          <a-entity id="plane"
+          circles-artefact="inspectScale: 35 35 35;
+            label_on: false;
+            description_on: false;"
+          position="3 0.7 -5.2" circles-interactive-object="type:highlight" rotation="0 -80 0" scale="30 30 30" gltf-model="#plane_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
 
       <!-- propellers -->
       <a-entity position="-3 2.5 -10" rotation="0 0 40" scale="30 30 30" gltf-model="#propeller_2blades_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
@@ -106,14 +112,19 @@
         <a-entity id="telescope" rotation="0 180 0" position="0 0.8 1" scale="30 30 30" gltf-model="#telescope_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
         <a-entity id="monitor" rotation="0 90 0" position="1 0.8 1" scale="30 30 30" gltf-model="#monitor_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
         <a-image position="1 1.25 0.82" rotation="0 180 0" src="#constellation_img" width="1" height="0.6"></a-image>
-        <a-entity id="constellationSheet" rotation="0 180 0" position="-1 0.8 1" gltf-model="#constellation_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
+        <a-entity id="constellationSheet"
+        circles-artefact="inspectScale: 3 3 3; inspectRotation: 90 0 0;
+            label_on: false;
+            description_on: false;"
+         rotation="0 180 0" position="-1 0.8 1" circles-interactive-object="type:highlight" gltf-model="#constellation_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
     
       <!-- terminal -->
       <a-entity position="4.6 0.15 4.8" geometry="primitive:box; height:1.3; width:1.2; depth:2.2;" material="color:gray;" circles-sphere-env-map="src:#skyMap" shadow="case:true; receive:true;"></a-entity>
           <a-entity id="terminal" position="4.6 0.8 4.6" rotation="0 -90 0" scale="50 50 50" gltf-model="#terminal_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:true;"></a-entity>
-          <a-entity id="lighthouseButton" position="4.6 0.8 5.5" geometry="primitive:cylinder; height:0.3; radius:0.2;" material="color:green;" circles-sphere-env-map="src:#skyMap" shadow="case:true; receive:true;"></a-entity>
+          
+          <a-entity id="lighthouseButton" position="4.6 0.8 5.5" geometry="primitive:cylinder; height:0.3; radius:0.2;" material="color:green;" circles-sphere-env-map="src:#skyMap" shadow="case:true; receive:true;" circles-interactive-object="type:highlight" onclick="lighton()"></a-entity>
           <a-entity id="buttonCover" position="4.6 0.8 5.5" geometry="primitive:box; height:0.4; width:0.5; depth:0.5;" material="color:rgb(200, 200, 255); opacity:0.7;" circles-sphere-env-map="src:#skyMap" shadow="case:true; receive:true;" visible="true"></a-entity>
-
+          <a-entity id="key" create-pinpad="digits: 4; numPins: 3; firstAnswer: 1049; secondAnswer: 6062; thirdAnswer: 0120; linkobj: terminal;" position="4.185 1.230 4.529" rotation="0 -90 0" scale="50 50 7" gltf-model="#keyPad_model" circles-sphere-env-map="src:#skyMap" shadow="cast:false; receive:false;" circles-interactive-object="type:highlight"></a-entity>
 
       <!-- sky box -->
       <a-entity id='skyBox' rotation='0 200 0' geometry='primitive:sphere; radius:50; segments-height:24; segments-width:24;' material='shader:flat; src:#skyMap; side:back;'></a-entity>

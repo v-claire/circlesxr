@@ -82,8 +82,12 @@ AFRAME.registerComponent('rotate-dial', {
     }
 });
 
-
-
+function lighton()
+{
+    let elPick = document.getElementById("lighthouse");
+    elPick.removeAttribute("gltf-model");
+    elPick.setAttribute('gltf-model', "#lighthouse_model");
+}
 /*function Dial(row, num)
 {
     switch (num){
