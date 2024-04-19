@@ -36,7 +36,14 @@ function createInfo(data) {
             }
 
             let itemTitle = objArray.items[i].info.name;
-            let itemYear = toString(objArray.items[i].info.year);
+
+            if (objArray.items[i].info.year != 9999) {
+                let itemYear = toString(objArray.items[i].info.year);
+            }
+
+            else {
+                let itemYear = "N/A";
+            }
             let itemDesc = objArray.items[i].info.desc;
             let itemNum = objArray.items[i].info.idNum;
 
@@ -46,20 +53,8 @@ function createInfo(data) {
             "Year: " + itemYear + "\n" +
             "Artifact ID: " + itemNum + ";" +
             "descriptionLookAt: true;");
+
+            itemObj.flushToDOM();
         }
-
-
-
-
-
-        //console.log(itemID);
     }
-    //console.log(size);
-   // console.log(objArray.items[0]);
-
-
-
-    //console.log(objArray);
-    //for 
-    
 }
